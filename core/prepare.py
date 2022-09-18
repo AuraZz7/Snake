@@ -24,6 +24,9 @@ screen = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pg.time.Clock()
 fps = 60
 
+bg_col1 = (170, 215, 81)
+bg_col2 = (162, 209, 73)
+
 # Setting up global game variables
 TILE_SIZE = SCREEN_WIDTH // grid_size
 empty_tiles = [(x, y) for x in range(0, SCREEN_WIDTH, TILE_SIZE) for y in range(0, SCREEN_HEIGHT, TILE_SIZE)]

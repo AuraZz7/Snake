@@ -150,7 +150,7 @@ class Snake(pg.sprite.Sprite):
             x, y = part[0]+border, part[1]+border
             w = h = TILE_SIZE-2*border
             pg.draw.rect(screen, "black", (border_x, border_y, border_w, border_h))
-            pg.draw.rect(screen, "green", (x, y, w, h))
+            pg.draw.rect(screen, (72, 118, 236), (x, y, w, h))
             # Drawing eyes
             for j in range(1, 3):
                 if i == 0 and (self.facing in ("left", "right")):
@@ -216,7 +216,13 @@ class Game(object):
         and the apples. Also draws any text such as scores or game over text
         """
         # Fill the screen
-        screen.fill("beige")
+        for x in range(0, grid_size):
+            for y in range(0, grid_size):
+                if (x + y) % 2 == 0:
+                    pg.draw.rect(screen, bg_col1, (x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE))
+                else:
+                    pg.draw.rect(screen, bg_col2, (x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE))
+
         # Draw the snake and apples
         self.snake.draw()
         for apple in self.apple_group:
